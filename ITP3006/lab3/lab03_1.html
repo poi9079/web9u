@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hotel Rating Form</title>
+    <style type="text/css">
+        fieldset {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Hotel Rating Form</h2>
+    <form method="post">
+        <input type="hidden" name="region" value="Asia" />
+        <fieldset>
+            <legend>Hotel Details</legend>
+            Hotel Name :
+            <input type="text" name="hotelname" /><br />
+            Phone No :
+            <input name="phoneno" maxlength="8" /><br />
+            Booking By :
+            <input type="radio" value="I" checked />
+            Internet
+            <input type="radio" value="A" />
+            Agency <br />
+            Room Selected :
+            <select name="room">
+                <option value="D">Doube</option>
+                <option value="T">Twin</option>
+                <option value="S" selected>Single</option>
+            </select>
+            <br />
+            Stay Period : from
+            <input type="date" />&nbsp;&nbsp;&nbsp; to
+            <input type="date" /><br />
+            Facilities :
+            <input type="radio" name="F1" value="G" checked />Gym
+            <input type="radio" name="F2" value="S" />Swimming Pool
+            <input type="radio" name="F3" value="B" />Business Centre
+        </fieldset>
+        <fieldset>
+            <legend>Your experience in the hotel:</legend>
+            <textarea rows="4" cols="50">In less 200 words...</textarea><br />
+            Send us any photo :
+            <input type="file" name="photo" /><br />
+            Rating :
+            <input type="text" pattern="[1-5]" size="3" /> stars (Min 1, Max 5)
+        </fieldset>
+        Choose a colour
+        <input type="color">
+        for the tee as your gift after you send this form.<br />
+        <button type="submit" value="Submit">Submit</button>
+        <button type="reset" value="Reset">Clean Data</button>
+    </form>
+</body>
+
+</html>
