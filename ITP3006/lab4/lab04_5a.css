@@ -1,0 +1,21 @@
+.p1{
+    background-color: green;
+}
+
+.p2{
+    background-color: red;
+    color: blue;
+}
+
+.p3{
+    background-color: pink;
+    color: yellow;
+}
+body{
+    background-color: yellow;
+}
+
+strong{
+    color: red;
+    font-size: 20
+}
