@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+</head>
+<script>
+    function getNum() {
+        do {
+            var n = parseInt(window.prompt("Enter a number"));
+            if (isNaN(n))
+                alert("Not a number!");
+            else return n;
+        } while (true);
+    }
+</script>
+
+<body>
+    <script type="text/javascript">
+        var x = getNum();
+        var y = getNum();
+        var z = x + y;
+        window.alert("The result of x + y is: " + z.toFixed(2));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript">
+        function sphereVolume(radius) {
+            var volume = (4.0 / 3.0) * Math.PI * Math.pow(parseInt(radius), 3);
+            alert("Volume of the sphere with radius " + radius + " is : " + volume.toFixed(2));
+        }
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // declare a variable named r 
+        var r = prompt("What is the radius of a sphere?", "");
+        // prompt the user for the radius
+        sphereVolume(r);
+        //call function sphereVolume with passing the variable r as an argument
+    </script>
+</body>
+</html>
