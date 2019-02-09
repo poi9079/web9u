@@ -1,0 +1,108 @@
+body {
+    margin: 0px;
+    font-family: Georgia;
+}
+
+#header,
+#nav,
+#main,
+#aside,
+#footer {
+    background: #DDF;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 15px;
+}
+
+#flex-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#header {
+    order: 1;
+    height: auto;
+    width: 100%;
+}
+
+#header img {
+    float: left;
+    margin-right: 10px;
+}
+
+#header div {
+    clear: none;
+}
+
+#nav {
+    order: 2;
+    width: 200px;
+}
+
+#main {
+    order: 3;
+    height: auto;
+    background: #FCC;
+    width: 10px;
+    -webkit-column-count: 3;
+    flex-grow: 1;
+}
+
+#main h1 {
+    line-height: 0.2;
+    -webkit-column-span: all;
+}
+
+#footer {
+    order: 5;
+    height: 50px;
+    width: 100%;
+}
+
+
+#aside {
+    order: 4;
+    width: 200px;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    #nav {
+        order: 4;
+        width: 100px;
+    }
+
+    #main {
+        height: auto;
+        background: #CFC;
+    }
+
+    #aside {
+        order: 2;
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #nav {
+        order: 4;
+        width: 100%;
+    }
+
+    #nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #main {
+        height: auto;
+        background: #FFC;
+    }
+
+    #aside {
+        display: none;
+    }
+}
