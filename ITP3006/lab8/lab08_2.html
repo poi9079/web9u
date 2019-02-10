@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Order Form</title>
+
+    <script type="text/javascript">
+        function startform() {
+            document.order.sub1.disabled = true;
+            document.order.sub2.disabled = true;
+            document.order.total.disabled = true;
+
+            document.order.shipping[0].disabled = true;
+            document.order.shipping[1].disabled = true;
+
+            document.order.product.focus();
+        }
+
+        function total_price() {
+            var s1 = parseFloat(document.order.sub1.value);
+            var s2 = parseFloat(document.order.sub2.value);
+            document.order.total.value =(s1 + s2).toFixed(2);
+
+        }
+
+        function order_price() {
+            var index = document.order.product.selectedIndex;
+            var item_value = parseFloat(document.order.product[index].value);
+            var qty_ordered = parseInt(document.order.qty.value);
+            document.order.sub1.value = (item_value * qty_ordered).toFixed(2);
+            if (index == 0) {
+                document.order.shipping[0].disabled = true;
+                document.order.shipping[1].disabled = true;
+                document.order.reset();
+            } else {
+                document.order.shipping[0].disabled = false;
+                document.order.shipping[1].disabled = false;
+            }
+            total_price();
+        }
+
+        function shipping_price(num) {
+            document.order.sub2.value = document.order.shipping[num].value;
+            total_price();
+        }
+
+    </script>
+</head>
+
+<body onload="startform()">
+
+    <form name="order">
+
+        <h1>Order Form</h1>
+
+        <table>
+            <tr>
+                <!-- List of products -->
+                <td width="70">Product:</td>
+                <td width="350">
+                    <select name="product" onchange="order_price()">
+                        <option value="0">Select an item</option>
+                        <option value="20.50">GoMap 1.0 ($20.50)</option>
+                        <option value="30.00">Drive Planner 2.0 ($30.00)</option>
+                    </select>
+
+                    <!-- Quantity of Order -->
+                    <input type="text" name="qty" size="3" onchange="order_price()" value="0">
+                </td>
+
+                <!-- Price of selected Item X Quantity Ordered -->
+                <td>
+                    <input type="text" name="sub1" size="7" value="0.00">
+                </td>
+            </tr>
+
+            <tr>
+                <!-- Shipping Method -->
+                <td width="70">Shipping:</td>
+                <td>
+                    <input type="radio" name="shipping" value="5.50" onchange="shipping_price(0)"> Standard (3-5 days): $5.50
+                    <br>
+                    <input type="radio" name="shipping" value="8.00" onchange="shipping_price(1)"> Express (2 days): $8.00
+                    <br>
+                </td>
+                <td>
+                    <input type="text" name="sub2" size="7" value="0.00">
+                </td>
+            </tr>
+
+            <tr>
+                <!-- Total Cost of Order (Product Cost + Shipping) -->
+                <td colspan="2" align="right">
+                    Total:
+                </td>
+                <td>
+                    <input type="text" name="total" size="7" value="0.00">
+                </td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        function checkFields() {
+            var uName = document.getElementById("tfUser").value;
+            var pw = document.getElementById("tfPwd").value;
+            var rPw = document.getElementById("tfRPwd").value;
+            if (pw == null || uName == null || rPw == null)
+                return false;
+            else if (pw != rPw)
+                return false;
+            else
+                return ture;
+        }
+
+    </script>
+</head>
+
+<body>
+    <form onSubmit="return checkFields()">
+        <h2>User Registration Form</h2>
+        <p>
+            Username:
+            <input type="text" id="tfUser" />
+            <br /> Password:
+            <input type="password" id="tfPwd" />
+            <br /> Password Retype:
+            <input type="password" id="tfRPwd" />
+            <br />
+            <input type="submit" value="Submit" onClick="return checkFields()"/>
+            <input type="reset" value="Reset" />
+        </p>
+    </form>
+</body>
+
+</html>
